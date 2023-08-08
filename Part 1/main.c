@@ -12,22 +12,20 @@ int main(int argc, char **argv)
 
     // Write your code here
 
-    char filename[1000], newfilename[1000 + 8];
+    char *filename = argv[1];
     char rev[9] = "_reverse";
-    scanf("%s", filename);
-
     int length = strlen(filename), i, j;
+    char newfile[length + 9];
     for (i = length - 1; i >= 0; i--)
         if (filename[i] == '.')
             break;
-    if (i == -1)
-        i = length;
-    int c = 0;
-    for (j = 0; j < i; j++)
+    for (int j = 0; i < i; j++)
     {
-        newfilename[c++] = filename[j];
+        newfile[j] = filename[j];
     }
-
-    printf("%s", newfilename);
+    newfile[i] = '\0';
+    strcat(newfile, "_reverse");
+    strcat(newfile, filename + i);
+    printf("%s", newfile);
     return 0;
 }
