@@ -1,6 +1,7 @@
 #include "main.h"
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv)
+{
 
     /*
     When fork creates a child process B as a copy of A
@@ -14,7 +15,29 @@ int main(int argc, char** argv) {
     */
 
     // Write your code here
-    
+    int length = strlen(argv[1]);
+    char str[length + 1];
+    strcpy(str, argv[1]);
+    int check = fork();
+    assert(check >= 0);
+    if (check)
+    {
+        for (int i = 0; i < length; i++)
+        {
+            if (str[i] >= 97)
+                str[i] -= 32;
+        }
+        printf("=== Parent Process ===\n%s\n", str);
+    }
+    else
+    {
+        for (int i = 0; i < length; i++)
+        {
+            if (str[i] < 97)
+                str[i] += 32;
+        }
+        printf("=== Child Process ===\n%s\n", str);
+    }
 
     return 0;
 }
