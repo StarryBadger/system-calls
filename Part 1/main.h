@@ -6,3 +6,7 @@ Include all the header files here.
 #include "string.h"
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <assert.h>
+#define BUFFER_SIZE 2
