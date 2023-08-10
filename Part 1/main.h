@@ -9,4 +9,4 @@ Include all the header files here.
 #include <unistd.h>
 #include <fcntl.h>
 #include <assert.h>
-#define BUFFER_SIZE 2
+#define BUFFER_SIZE 100000
