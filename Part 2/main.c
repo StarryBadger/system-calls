@@ -22,21 +22,23 @@ int main(int argc, char **argv)
     assert(check >= 0);
     if (check)
     {
-        for (int i = 0; i < length; i++)
-        {
-            if (str[i] >= 97)
-                str[i] -= 32;
-        }
-        printf("=== Parent Process ===\n%s\n", str);
-    }
-    else
-    {
+        printf("=== Parent Process ===\n");
         for (int i = 0; i < length; i++)
         {
             if (str[i] < 97)
                 str[i] += 32;
         }
-        printf("=== Child Process ===\n%s\n", str);
+        printf("%s\n", str);
+    }
+    else
+    {
+        printf("=== Child Process ===\n");
+        for (int i = 0; i < length; i++)
+        {
+            if (str[i] >= 97)
+                str[i] -= 32;
+        }
+        printf("%s\n", str);
     }
 
     return 0;
